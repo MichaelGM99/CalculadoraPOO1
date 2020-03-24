@@ -9,7 +9,12 @@
  * @author Michael GM
  */
 public class Calculadora1 extends javax.swing.JFrame {
-
+    
+    //Declaracion de variables
+    
+    String Espacio1;
+    String signo;
+    String Espacio2;
     /**
      * Creates new form Calculadora1
      */
@@ -337,82 +342,193 @@ public class Calculadora1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "1");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "4");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "0");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "7");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        Double numero;
+        String Cadena;
+        Cadena=txtpantalla.getText();
+        
+        if (Cadena.length()>0){
+            numero=(-1)*Double.parseDouble(Cadena);
+            txtpantalla.setText(numero.toString());
+    }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "8");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "2");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "5");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        String Cadena;
+        Cadena = txtpantalla.getText();
+        
+        if (Cadena.length()<=0){
+            txtpantalla.setText("0.");
+        }
+        else{
+            if (!existepunto(txtpantalla.getText())){
+                txtpantalla.setText(txtpantalla.getText()+".");
+            }
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
-
+    public static boolean existepunto(String cadena){
+        boolean resultado;
+        resultado = false;
+        
+        for (int i = 0;  i<cadena.length(); i++){
+            if (cadena.substring(i, i+1).equals(".")){
+                resultado=true;
+                break;
+                
+            }
+        
+        }
+        return resultado;
+    } 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "9");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "3");
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText(txtpantalla.getText()+ "6");
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        if(!txtpantalla.getText().equals("")){
+            Espacio1=txtpantalla.getText();
+            signo= "/";
+            txtpantalla.setText("");
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
+        if(!txtpantalla.getText().equals("")){
+            Espacio1=txtpantalla.getText();
+            signo= "*";
+            txtpantalla.setText("");
+        }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+        if(!txtpantalla.getText().equals("")){
+            Espacio1=txtpantalla.getText();
+            signo= "-";
+            txtpantalla.setText("");
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        if(!txtpantalla.getText().equals("")){
+            Espacio1=txtpantalla.getText();
+            signo= "+";
+            txtpantalla.setText("");
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
+        String resultado = null;
+        Espacio2=txtpantalla.getText();
+        
+        if (!Espacio2.equals("")){
+            resultado = calculadora(Espacio1, Espacio2, signo);
+        }
+        
+        txtpantalla.setText(resultado);
     }//GEN-LAST:event_jButton17ActionPerformed
-
+    
+    public static String calculadora(String Espacio1, String Espacio2, String signo){
+        Double resultado = 0.0;
+        String respuesta;
+        
+        if (signo.equals("-")){
+            resultado = Double.parseDouble(Espacio1) - Double.parseDouble(Espacio2);
+        }
+        
+        if (signo.equals("+")){
+            resultado = Double.parseDouble(Espacio1) + Double.parseDouble(Espacio2);
+        }
+        
+        if (signo.equals("*")){
+            resultado = Double.parseDouble(Espacio1) * Double.parseDouble(Espacio2);
+        }
+        
+        if (signo.equals("/")){
+            resultado = Double.parseDouble(Espacio1) / Double.parseDouble(Espacio2);
+        }
+        
+        respuesta=resultado.toString();
+        return respuesta;
+    }
+    
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
+        String Cadena;
+        Double numero;
+        Cadena = txtpantalla.getText();
+        
+        if (Cadena.length()>0){
+            numero= 1/(Double.parseDouble(Cadena));
+            txtpantalla.setText(numero.toString());
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
+        String Cadena;
+        Cadena=txtpantalla.getText();
+        
+        if (Cadena.length()>0){
+            Cadena=Cadena.substring(0,Cadena.length()-1);
+            txtpantalla.setText(Cadena);
+        }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
+        txtpantalla.setText("");
+        
     }//GEN-LAST:event_jButton20ActionPerformed
 
     /**
