@@ -18,6 +18,9 @@ public class Calculadora {
         
         System.out.println("MICHAEL");
         System.out.println("MICHAEL");
+        System.out.println("MICHAEL");
+        System.out.println("MICHAEL");
+        System.out.println("MICHAEL");
     }
     
 }
